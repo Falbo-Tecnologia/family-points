@@ -1,31 +1,27 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Web.Models;
-
-namespace Web.Controllers;
+﻿namespace Web.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly IEncryption _encryption;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IEncryption encryption)
     {
-        _logger = logger;
+        _encryption = encryption;
     }
-
     public IActionResult Index()
     {
-        return View();
+        var senha = "123456";
+        var hash = _encryption.GenerateHash(senha);
+        var verify = _encryption.Verify(senha, hash);
+        var encrypt = _encryption.Encrypt(senha);
+        var decrypt = _encryption.Decrypt(encrypt);
+
+        if (!decrypt.Equals(senha))
+            return BadRequest("Teste de criptografia falhou.");
+            
+        return Ok(new { senha, hash, verify, encrypt, decrypt });
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+    public IActionResult Privacy() => View();
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
 }

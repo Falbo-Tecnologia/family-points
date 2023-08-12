@@ -1,4 +1,14 @@
+var cultureInfo = new CultureInfo("pt-BR");
+cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
 var builder = WebApplication.CreateBuilder(args);
+
+IConfiguration configurations = builder.Configuration;
+var appSetting = configurations.Get<AppSetting>();
+builder.Services.AddDependencies(appSetting);
+
 
 builder.Services.AddControllersWithViews();
 

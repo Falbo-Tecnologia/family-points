@@ -29,40 +29,49 @@ body {
 html,
 body {
   height: 100%;
+}
+
+html, body, #main-container, #main, #header, #footer, #menu-lateral {
   overflow: hidden;
 }
 
 #main-container {
-    max-height: 100vh;
-    overflow: hidden;
-    border: 3px solid green;
+  max-height: 100vh;
+  overflow: hidden;
+  border: 3px solid green;
 }
 
 #header {
   border: 3px solid blue;
   width: 100vw;
-  height: 10vh;
+  height: 8vh;
+  overflow: hidden;
+}
+
+#footer {
+  border: 3px solid var(--cor-primaria);
+  width: 100vw;
+  height: 8vh;
   overflow: hidden;
 }
 
 #main {
-    display: flex;
-    height: 80vh;
-    overflow: hidden;
-    border: 3px solid red;
+  display: flex;
+  height: 84vh;
+  overflow: hidden;
+  border: 3px solid red;
 }
 
-.menu-lateral {
-    border: 3px solid purple;
-    width: 20vw;
-    height: 80vh;
-    overflow: hidden;
+#menu-lateral {
+  /* position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100vh;
+    display: none; */
+  border: 3px solid purple;
+  background-color: var(--cor-primaria);
+  height: 92vw;
+  width: 18vw;
+  overflow: hidden;
 }
-
-#footer {
-    border: 3px solid var(--cor-primaria);
-    width: 100vw;
-    height: 10vh;
-    overflow: hidden;
-}
-

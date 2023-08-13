@@ -1,1 +1,49 @@
-<button>Login</button>
+@model Usuario;
+@{
+    Layout = null;
+    ViewData["Title"] = "Login - Family Points";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/login.css" asp-append-version="true" />
+</head>
+
+<body>
+    <section>
+        <form id="form-login" onsubmit="">
+            <fieldset>
+                <div class="visor">
+                    <label class=""></label>
+                    <div class="">
+                        <input class="" id="" type="text" placeholder="Digite seu login" />
+                        <label for="">Login</label>
+                    </div>
+                    <div class="">
+                        <input class="" id="" type="password" placeholder="Digite sua Senha" />
+                        <label for="">Senha</label>
+                    </div>
+                    <div class="">
+                        <button class="" type="submit">Entrar</button>
+                        <a class="" asp-area="" asp-controller="" asp-action="">Cadastrar</a>
+                    </div>
+                </div>
+        </form>
+        </fieldset>
+    </section>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/pages/login.js" asp-append-version="true"></script>
+    <script>
+    </script>
+</body>
+
+</html>

@@ -11,20 +11,19 @@
 
 <body>
     <section id="main-container">
-        <header>
-            <nav id="header">
-            </nav>
+        <header id="header">
+            <partial name="./_Header.cshtml">
         </header>
 
         <main role="main" id="main">
-            <aside class="menu-lateral">Menu</aside>
+            <aside id="menu-lateral">
+                <partial name="./_MenuLateral.cshtml">
+            </aside>
             @RenderBody()
         </main>
 
         <footer id="footer">
-            <p>
-                &copy; 2023 - Family Points - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </p>
+            <partial name="./_Footer.cshtml">
         </footer>
     </section>
 

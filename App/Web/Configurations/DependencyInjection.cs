@@ -1,4 +1,5 @@
-using Core.Helpers;
+using Core.Interfaces.Repositories;
+using Data.Repositories;
 
 namespace Web.Configurations;
 
@@ -10,9 +11,13 @@ public static class DependencyInjection
 
         services.AddControllersWithViews();
 
-        services.AddScoped<Notification>();
-        services.AddScoped<ILogWriter, LogWriter>();
+        services.AddScoped<AppDbContext>();
+
         services.AddScoped<IEncryption, Encryption>();
-        // services.AddScoped<AppDbContext>();
+        services.AddScoped<ILogWriter, LogWriter>();
+        services.AddScoped<INotification, Notification>();
+
+        services.AddScoped<ITarefaRepository, TarefaRepository>();
+        services.AddScoped<IUsuarioRepository, UsuarioRepository>();
     }
 }

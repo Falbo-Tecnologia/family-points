@@ -1,6 +1,7 @@
 global using Core.Helpers;
 global using Core.Interfaces.Helpers;
 global using Core.Interfaces.Helpers.Email;
+global using Core.Models;
 global using Core.Settings;
 
 global using System.Collections.ObjectModel;

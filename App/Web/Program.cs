@@ -9,9 +9,6 @@ IConfiguration configurations = builder.Configuration;
 var appSetting = configurations.Get<AppSetting>();
 builder.Services.AddDependencies(appSetting);
 
-
-builder.Services.AddControllersWithViews();
-
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

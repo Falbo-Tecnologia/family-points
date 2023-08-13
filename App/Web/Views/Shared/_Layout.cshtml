@@ -1,29 +1,36 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - Web</title>
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Web</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <section id="main-container">
         <header>
-            <nav class="cabecalho"></nav>
+            <nav id="header">
+            </nav>
         </header>
-        <section class="main-container">
-            <main role="main" class="main">
+
+        <main role="main" id="main">
             <aside class="menu-lateral">Menu</aside>
-                @RenderBody()
-            </main>
-        </section>
-        <footer>
-            <section>
+            @RenderBody()
+        </main>
+
+        <footer id="footer">
+            <p>
                 &copy; 2023 - Family Points - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </section>
+            </p>
         </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
-    </body>
+    </section>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
 </html>

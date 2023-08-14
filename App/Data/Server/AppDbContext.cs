@@ -9,4 +9,7 @@ public class AppDbContext : BaseDbContext
 
     public DbSet<Tarefa> Tarefas { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
+    public DbSet<TipoUsuario> TiposUsuarios { get; set; }
+    public DbSet<UsuarioOpcao> UsuarioOpcoes { get; set; }
+    public DbSet<OpcaoSistema> OpcoesSistema { get; set; }
 }

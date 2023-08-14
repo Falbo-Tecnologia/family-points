@@ -1,6 +1,9 @@
 global using Core.Interfaces.Helpers;
+global using Core.Interfaces.Repositories;
 global using Core.Models;
 global using Core.Settings;
+
+global using Data.Server;
 
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.EntityFrameworkCore.Diagnostics;

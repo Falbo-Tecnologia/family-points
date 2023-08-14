@@ -1,7 +1,3 @@
-
-using Core.Interfaces.Repositories;
-using Data.Server;
-
 namespace Data.Repositories
 {
     public class TarefaRepository : ITarefaRepository

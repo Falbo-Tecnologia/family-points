@@ -12,6 +12,7 @@ global using Data.Server;
 global using Web.Configurations;
 global using Web.Configurations.Extensions;
 
+global using Microsoft.AspNetCore.Authentication.Cookies;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Mvc.Filters;
 global using Microsoft.AspNetCore.StaticFiles;

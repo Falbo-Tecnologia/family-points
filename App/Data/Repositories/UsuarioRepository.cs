@@ -25,5 +25,39 @@ namespace Data.Repositories
 
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<Usuario> BuscarPorApelidoAsync(string apelido)
+        {
+            return await _dbContext.Usuarios.Where(x => x.Apelido == apelido)
+                .Select(x => new Usuario
+                {
+                    Id = x.Id,
+                    IdTipoUsuario = x.IdTipoUsuario,
+                    Nome = x.Nome,
+                    Email = x.Email,
+                    Apelido = x.Apelido,
+                    Senha = x.Senha,
+                    DataCadastro = x.DataCadastro,
+                    UsuarioCadastro = x.UsuarioCadastro,
+                    UsuarioOpcoes = x.UsuarioOpcoes.Where(y => y.IdUsuario == x.Id).Select(y => new UsuarioOpcao
+                    {
+                        IdUsuario = y.IdUsuario,
+                        IdOpcaoSistema = y.IdOpcaoSistema,
+                        DataCadastro = y.DataCadastro,
+                        UsuarioCadastro = y.UsuarioCadastro,
+                        OpcaoSistema = new OpcaoSistema
+                        {
+                            Id = y.OpcaoSistema.Id,
+                            IdOpcaoMae = y.OpcaoSistema.IdOpcaoMae,
+                            Descricao = y.OpcaoSistema.Descricao,
+                        }
+                    }),
+                    TipoUsuario = new TipoUsuario
+                    {
+                        Id = x.TipoUsuario.Id,
+                        Tipo = x.TipoUsuario.Tipo
+                    }
+                }).FirstOrDefaultAsync();
+        }
     }
 }

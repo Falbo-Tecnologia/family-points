@@ -8,6 +8,7 @@ public class AppSetting
     public DatabaseSetting Database { get; set; }
     public EmailSetting Email { get; set; }
     public EncryptionSetting Encryption { get; set; }
+    public JwtSecretSetting JwtSecret { get; set; }
 
     public static string GetApplicationName() => Assembly.GetEntryAssembly().GetName().Name;
 }

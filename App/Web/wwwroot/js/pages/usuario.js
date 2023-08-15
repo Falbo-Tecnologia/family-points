@@ -11,10 +11,7 @@ var usuario = (function () {
 
     var cadastrar = function (form, url) {
         var model = $(`#${form}`).serializeObject();
-        console.log(model);
-        $.post(configs.urls[url], model).done(() => {
-            console.log('cadastrado com sucesso');
-        });
+        $.post(configs.urls[url], model).done().fail(site.toast.error);
     };
 
     return {

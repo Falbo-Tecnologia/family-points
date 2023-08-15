@@ -2,7 +2,7 @@ namespace Core.Models;
 public class OpcaoSistema
 {
     public int Id { get; set; }
-    public int IdOpcaoMae { get; set; }
+    public int? IdOpcaoMae { get; set; }
     public string Descricao { get; set; }
 
     public Usuario Usuario { get; set; }

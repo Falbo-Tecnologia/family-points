@@ -7,12 +7,17 @@ global using Core.Interfaces.Services;
 global using Core.Models;
 global using Core.Settings;
 
+global using Microsoft.IdentityModel.Tokens;
+
 global using System.Collections.ObjectModel;
+global using System.ComponentModel.DataAnnotations.Schema;
 global using System.Diagnostics;
 global using System.Globalization;
+global using System.IdentityModel.Tokens.Jwt;
 global using System.Net;
 global using System.Net.Mail;
 global using System.Reflection;
+global using System.Security.Claims;
 global using System.Security.Cryptography;
 global using System.Text;
 global using System.Text.RegularExpressions;

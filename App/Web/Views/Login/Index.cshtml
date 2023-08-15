@@ -12,35 +12,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/iziToast/css/iziToast.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/pages/login.css" asp-append-version="true" />
 </head>
 
 <body>
-    <form id="form-login" onsubmit="">
+    <form id="form-login" onsubmit="login.autenticar('form-login', 'autenticar')">
         <fieldset class="container-login">
-            <div class="visor">
-                <label class=""></label>
-                <div class="">
-                    <input class="" id="" type="text" placeholder="Digite seu login" />
-                    <label for="">Login</label>
+            <div>
+                <div>
+                    <input asp-for="Apelido" type="text" placeholder="Digite seu login" />
+                    <label asp-for="Apelido">Login</label>
                 </div>
-                <div class="">
-                    <input class="" id="" type="password" placeholder="Digite sua Senha" />
-                    <label for="">Senha</label>
+                <div>
+                    <input asp-for="Senha" type="password" placeholder="Digite sua Senha" />
+                    <label asp-for="Senha">Senha</label>
                 </div>
-                <div class="">
-                    <button class="" type="submit">Entrar</button>
-                    <a asp-controller="Usuario" asp-action="GetViewCadastro">Cadastrar</a>
+                <div>
+                    <button type="submit">Entrar</button>
+                    <button type="button"><a asp-controller="Usuario"
+                            asp-action="GetViewCadastro">Cadastrar</a></button>
                 </div>
             </div>
     </form>
     </fieldset>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/iziToast/js/iziToast.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/pages/login.js" asp-append-version="true"></script>
+
     <script>
+        login.init({
+            urls: {
+                autenticar: '@Url.Action("Autenticar", "Login")'
+            }
+        });
     </script>
 </body>
 

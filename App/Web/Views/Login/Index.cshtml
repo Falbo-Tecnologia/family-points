@@ -1,6 +1,7 @@
 @model Usuario;
 @{
     Layout = null;
+
     ViewData["Title"] = "Login - Family Points";
 }
 
@@ -18,6 +19,10 @@
 </head>
 
 <body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <p class="loading-text">Loading...</p>
+    </div>
+
     <form id="form-login" onsubmit="login.autenticar('form-login', 'autenticar')">
         <fieldset class="container-login">
             <div>
@@ -47,6 +52,16 @@
             urls: {
                 autenticar: '@Url.Action("Autenticar", "Login")'
             }
+        });
+        const menuButton = document.getElementById('menuButton');
+        const lateralMenu = document.getElementById('lateralMenu');
+
+        menuButton.addEventListener('mouseenter', () => {
+            lateralMenu.classList.add('active');
+        });
+
+        lateralMenu.addEventListener('mouseleave', () => {
+            lateralMenu.classList.remove('active');
         });
     </script>
 </body>

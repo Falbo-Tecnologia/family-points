@@ -1,3 +1,4 @@
+global using Core.Extensions;
 global using Core.Helpers;
 global using Core.Interfaces.Helpers;
 global using Core.Interfaces.Repositories;
@@ -11,10 +12,12 @@ global using Data.Server;
 
 global using Web.Configurations;
 global using Web.Configurations.Extensions;
+global using Web.ViewModels;
 
 global using Microsoft.AspNetCore.Authentication.Cookies;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Mvc.Filters;
+global using Microsoft.AspNetCore.Mvc.Rendering;
 global using Microsoft.AspNetCore.StaticFiles;
 
 global using System.Globalization;

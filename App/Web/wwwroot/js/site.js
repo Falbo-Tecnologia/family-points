@@ -152,6 +152,20 @@
         };
     })();
 
+    $(document).ready(function () {
+        const menuButton = $('#botao-menu');
+        const menuLateral = $('#menu-lateral');
+
+        menuButton.on('mouseenter', function () {
+            menuLateral.show('slow');
+        });
+
+        menuLateral.on('mouseleave', function () {
+            menuLateral.hide('slow');
+        });
+    });
+
+
     return {
         toast: toast
     };

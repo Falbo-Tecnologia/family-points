@@ -17,8 +17,8 @@ public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
         builder.Property(x => x.DataCadastro).HasColumnName("data_cadastro");
         builder.Property(x => x.UsuarioCadastro).HasColumnName("usuario_cadastro");
 
-        builder.HasMany(x => x.Tarefas).WithOne(x => x.Usuario).HasForeignKey(x => x.IdUsuario).HasConstraintName("fk_tarefa__usuario");
-        builder.HasMany(x => x.UsuarioOpcoes).WithOne(x => x.Usuario).HasForeignKey(x => x.IdUsuario).HasConstraintName("fk_usuario_opcao__usuario");
         builder.HasOne(x => x.TipoUsuario).WithMany(x => x.Usuarios).HasForeignKey(x => x.IdTipoUsuario).HasConstraintName("fk_usuario__tipo_usuario");
+        builder.HasMany(x => x.TarefasUsuarios).WithOne(x => x.Usuario).HasForeignKey(x => x.IdUsuario).HasConstraintName("fk_tarefa_usuario__usuario");
+        builder.HasMany(x => x.UsuarioOpcoes).WithOne(x => x.Usuario).HasForeignKey(x => x.IdUsuario).HasConstraintName("fk_usuario_opcao__usuario");
     }
 }

@@ -1,48 +1,11 @@
-@* @model Usuario;
-<form action="submit">
-    <fieldset>
-        <label asp-for="TipoUsuario">Tipo do usuario</label>
-        <input type="select" name="TipoEnum">
-        <option value="Responsável"></option>
-        <option value="Criança"></option>
-        <input type="number" asp-for="TipoUsuario" value="TipoEnum == Responsável ? 1 : 2" hidden>
-
-        <label asp-for="Nome">Nome</label>
-        <input type="text" asp-for="Nome">
-
-        <label asp-for="Apelido">Usuário</label>
-        <input type="text" asp-for="Apelido" placeholder="digite o usuario">
-
-        <label asp-for="Senha">Senha</label>
-        <input type="text" asp-for="Senha" placeholder="digite sua senha">
-    </fieldset>
-</form> *@
-
-
-@* @model Usuario
-<form method="post" asp-controller="Usuario" asp-action="PostCadastroAsync" model="submit">
-    <fieldset>
-        <label asp-for="TipoUsuario">Tipo do usuário</label>
-        <select name="TipoEnum">
-            <option value="Responsavel">Responsável</option>
-            <option value="Crianca">Criança</option>
-        </select>
-        <input type="number" asp-for="TipoUsuario" value="Model.TipoUsuario" hidden>
-        
-        <label asp-for="Nome">Nome</label>
-        <input type="text" asp-for="Nome">
-
-        <label asp-for="Apelido">Usuário</label>
-        <input type="text" asp-for="Apelido" placeholder="Digite o usuário">
-
-        <label asp-for="Senha">Senha</label>
-        <input type="password" asp-for="Senha" placeholder="Digite sua senha">
-    </fieldset>
-    <button type="submit">Cadastrar</button>
-</form> *@
-
-
 @model Usuario
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/iziToast/css/iziToast.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/pages/usuario.css" asp-append-version="true" />
 
 <form id="form-cadastro-usuario" onsubmit="usuario.cadastrar('form-cadastro-usuario', 'cadastrar')">
     <fieldset>
@@ -51,10 +14,10 @@
             <option value="Responsavel">Responsável</option>
             <option value="Crianca">Criança</option>
         </select>
-        
+
         <label asp-for="Nome">Nome</label>
         <input type="text" asp-for="Nome">
-        
+
         <label asp-for="Email">Email</label>
         <input type="text" asp-for="Email">
 
@@ -63,8 +26,21 @@
 
         <label asp-for="Senha">Senha</label>
         <input type="password" asp-for="Senha" placeholder="Digite sua senha">
+
+        <label asp-for="RepetirSenha">Repetir Senha</label>
+        <input type="password" asp-for="RepetirSenha" placeholder="Digite a senha novamente">
     </fieldset>
     <button type="submit">Cadastrar</button>
 </form>
 
-<partial name="./_Scripts.cshtml">
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/iziToast/js/iziToast.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/pages/usuario.js" asp-append-version="true"></script>
+<script>
+    usuario.init({
+        urls: {
+            cadastrar: '@Url.Action("cadastro-usuario", "usuario")'
+        }
+    });
+</script>

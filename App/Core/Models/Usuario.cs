@@ -11,7 +11,10 @@ public class Usuario
     public DateTime DataCadastro { get; set; }
     public int UsuarioCadastro { get; set; }
 
-    public IEnumerable<Tarefa> Tarefas { get; set; }
+    [NotMapped]
+    public string RepetirSenha { get; set; }
+
+    public IEnumerable<TarefaUsuario> TarefasUsuarios { get; set; }
     public IEnumerable<UsuarioOpcao> UsuarioOpcoes { get; set; }
     public TipoUsuario TipoUsuario { get; set; }
 
@@ -28,6 +31,12 @@ public class Usuario
 
         if (string.IsNullOrEmpty(Senha))
             notification.Add("É obrigatório informar a senha");
+
+        if (string.IsNullOrEmpty(RepetirSenha))
+            notification.Add("É obrigatório repetir a senha");
+
+        if (Senha != RepetirSenha)
+            notification.Add("As senhas não conferem");
 
         return !notification.Any();
     }

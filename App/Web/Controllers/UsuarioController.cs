@@ -1,7 +1,7 @@
 namespace Web.Controllers;
 
 [Route("usuario")]
-public class UsuarioController : AuthenticatedController
+public class UsuarioController : Controller
 {
     private readonly INotification _notification;
     private readonly IUsuarioService _usuarioService;

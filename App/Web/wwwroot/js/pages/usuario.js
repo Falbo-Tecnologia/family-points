@@ -10,8 +10,11 @@ var usuario = (function () {
     };
 
     var cadastrar = function (form, url) {
+        site.mostraLoading();
         var model = $(`#${form}`).serializeObject();
-        $.post(configs.urls[url], model).done().fail(site.toast.error);
+        $.post(configs.urls[url], model)
+            .done(site.redirectToAction)
+            .fail(site.escondeLoading);
     };
 
     return {

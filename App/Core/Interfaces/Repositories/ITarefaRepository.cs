@@ -4,5 +4,5 @@ public interface ITarefaRepository
 {
     Task<IEnumerable<Tarefa>> GetTarefasAsync();
     Task<Tarefa> GetTarefaAsync(int id);
-    Task PutTarefaAsync(Tarefa tarefa);
+    Task PostTarefasAsync(int idUsuarioLogado, IEnumerable<Tarefa> tarefas);
 }

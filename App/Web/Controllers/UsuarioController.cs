@@ -28,6 +28,6 @@ public class UsuarioController : Controller
             return BadRequest(_notification.Get());
 
         await _usuarioService.CadastrarDinamicoAsync(usuario);
-        return RedirectToAction(nameof(Index));
+        return Ok(new { success = true, message = "Usuario cadastrado com sucesso!", redirectUrl = Url.Action(nameof(Index), "Usuario") });
     }
 }

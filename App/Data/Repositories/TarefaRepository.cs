@@ -13,9 +13,22 @@ namespace Data.Repositories
 
         public async Task<Tarefa> GetTarefaAsync(int id) => await _dbContext.Tarefas.FirstOrDefaultAsync(x => x.Id == id);
 
-        public async Task PutTarefaAsync(Tarefa tarefa)
+        public async Task PostTarefasAsync(int idUsuarioLogado, IEnumerable<Tarefa> tarefas)
         {
-            await _dbContext.Tarefas.AddAsync(tarefa);
+            var tarefasTratadas = tarefas?.Select(x => new Tarefa
+                {
+                    Id = x.Id,
+                    Descricao = x.Descricao,
+                    Pontuacao = x.Pontuacao,
+                    DataCadastro = DateTime.UtcNow,
+                    UsuarioCadastro = idUsuarioLogado
+                });
+                
+            if (tarefas.Count() > 1)
+                await _dbContext.Tarefas.AddRangeAsync(tarefasTratadas);
+            else
+                await _dbContext.Tarefas.AddAsync(tarefasTratadas.FirstOrDefault());
+
             await _dbContext.SaveChangesAsync();
         }
     }

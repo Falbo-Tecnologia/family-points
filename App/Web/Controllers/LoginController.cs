@@ -31,7 +31,7 @@ public class LoginController : Controller
 
         Response.Cookies.Append(_jwtSecretSetting.CookieName, jwtToken);
 
-        return Json(new { success = true, redirectUrl = Url.Action("Index", "Home") });
+        return Ok(new { success = true, redirectUrl = Url.Action("Index", "Home") });
     }
 
     [HttpGet("logout")]

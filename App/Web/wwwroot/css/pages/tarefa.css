@@ -1,0 +1,12 @@
+.conteudo {
+    text-align: center;
+}
+
+#tabela-tarefas-adicionadas {
+    margin: auto;
+}
+
+
+table, tr, th, td {
+    border: 1px solid black;
+}

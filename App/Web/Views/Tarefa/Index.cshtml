@@ -1,0 +1,51 @@
+@model Tarefa;
+<link rel="stylesheet" href="~/css/pages/tarefa.css" asp-append-version="true" />
+<section class="conteudo">
+    <form id="form-cadastro-tarefa" onsubmit="tarefa.finalizar('cadastrar')">
+        <label asp-for="Descricao"></label>
+        <input id="cadastro-tarefa-descricao" type="text" asp-for="Descricao">
+
+        <label asp-for="Pontuacao"></label>
+        <input id="cadastro-tarefa-pontuacao" type="text" asp-for="Pontuacao">
+
+        <button type="reset" onclick="tarefa.inserirTarefa()">Salvar</button>
+        <button type="submit">Finalizar</button>
+    </form>
+</section>
+
+<section>
+    <table id="tabela-tarefas-adicionadas">
+        <thead>
+            <tr>
+                <th data-property="Descricao">Descrição</th>
+                <th data-property="Pontuacao">Pontuação</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody id="corpo-tabela-tarefas-adicionadas"></tbody>
+    </table>
+</section>
+
+<h1 onclick="tarefa.mostrarViewListaTarefas()">Listar Tarefas</h1>
+<div id="mostrar-tarefas">
+</div>
+
+<script src="~/js/pages/tarefa.js" asp-append-version="true"></script>
+<script>
+    tarefa.init({
+        urls: {
+            cadastrar: '@Url.Action("cadastrar", "tarefa")',
+            listaTarefas: '@Url.Action("tarefas", "tarefa")',
+        }
+    });
+</script>
+
+@*
+<section class="conteudo">
+<h2>Tarefa</h2>
+<p>Digite o nome da criança: </p>
+<form id="form-buscar-usuario-tarefa">
+<input type="text" name="Nome" placeholder="Digite o nome da criança">
+<button type="submit">Buscar:</button>
+</form>
+</section> *@

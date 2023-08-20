@@ -1,6 +1,6 @@
 namespace Core.Interfaces.Services;
 
-public interface IUsuarioService
+public interface ITarefaUsuarioService
 {
-    Task CadastrarDinamicoAsync(Usuario usuario = null, IEnumerable<Usuario> usuarios = null);
+    Task CadastrarDinamicoAsync(TarefaUsuario tarefa = null, IEnumerable<TarefaUsuario> tarefas = null);
 }

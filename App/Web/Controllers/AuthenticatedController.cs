@@ -44,7 +44,8 @@ public class AuthenticatedController : Controller
         UsuarioLogado = CookieExtension.SerializarToken(cookie);
         ViewBag.UsuarioLogado = UsuarioLogado;
 
-        if (!HttpContext.Request.RouteValues.Values.LastOrDefault().ToString().Equals("Index"))
+        if (!HttpContext.Request.RouteValues.Values.LastOrDefault().ToString().Equals("Index") &&
+            !ControllerContext.ActionDescriptor.ControllerName.Equals("Home"))
         {
             if (!UsuarioLogado.UsuarioOpcoes.Any(x => !string.IsNullOrEmpty(x.OpcaoSistema.Descricao) &&
                 x.OpcaoSistema.Descricao.RemoveDiacritics().Replace(" ", "").ToLower().Equals(ControllerContext.ActionDescriptor.ControllerName.ToLower())))

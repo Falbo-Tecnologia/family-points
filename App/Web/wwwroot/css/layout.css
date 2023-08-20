@@ -45,6 +45,14 @@ body,
     width: 18vw;
 }
 
+.conteudo-menu {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem;
+}
+
 button {
     padding: 10px 20px;
     background-color: #3498db;

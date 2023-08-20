@@ -1,0 +1,40 @@
+@model IEnumerable<Tarefa>;
+@{
+    ViewData["Title"] = "Tarefas";
+    Layout = null;
+}
+
+<table>
+    <tr>
+        <th>Descricao</th>
+        <th>Pontuacao</th>
+    </tr>
+    @foreach (var tarefa in Model)
+    {
+        <tr>
+            <td>@tarefa.Descricao</td>
+            <td>@tarefa.Pontuacao</td>
+        </tr>
+    }
+</table>
+
+@* <script src="~/lib/uikit/js/uikit.min.js"></script>
+<script src="~/lib/uikit/js/uikit-icons.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/iziToast/js/iziToast.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/pages/tarefa.js" asp-append-version="true"></script> *@
+
+
+@* function () {
+const botaoMenu = $('#botao-menu');
+const menuLateral = $('#menu-lateral');
+
+botaoMenu.on('mouseenter', function () {
+menuLateral.show('slow');
+});
+
+menuLateral.on('mouseleave', function () {
+menuLateral.hide('slow');
+});
+} *@

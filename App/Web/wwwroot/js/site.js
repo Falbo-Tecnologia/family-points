@@ -153,10 +153,10 @@
     })();
 
     $(document).ready(function () {
-        const menuButton = $('#botao-menu');
+        const botaoMenu = $('#botao-menu');
         const menuLateral = $('#menu-lateral');
 
-        menuButton.on('mouseenter', function () {
+        botaoMenu.on('mouseenter', function () {
             menuLateral.show('slow');
         });
 
@@ -165,8 +165,37 @@
         });
     });
 
+    var mostraLoading = function () {
+        $('#loadingOverlay').css('display', 'flex');
+    };
+
+    var escondeLoading = function (msg) {
+        $('#loadingOverlay').css('display', 'none');
+        toast.error(msg);
+    };
+    var mostraLoading = function () {
+        $('#loadingOverlay').css('display', 'flex');
+    };
+
+    var escondeLoading = function (msg) {
+        $('#loadingOverlay').css('display', 'none');
+        toast.error(msg);
+    };
+
+    var redirectToAction = function (response) {
+        escondeLoading();
+
+        if (response.message)
+            toast.success(response.message);
+
+        if (response.success)
+            window.location.href = response.redirectUrl;
+    };
 
     return {
-        toast: toast
+        toast: toast,
+        mostraLoading: mostraLoading,
+        redirectToAction: redirectToAction,
+        escondeLoading: escondeLoading
     };
 })();
